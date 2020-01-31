@@ -3,6 +3,12 @@ fun addToEach(x, []) = [] | addToEach(a,b::rest) = [a::b]@addToEach(a,rest);
 
 addToEach(1, [[4,5],[7,8]]);
 
+(*2.4.15*)
+fun powerset([]) = [[]] | powerset(a::rest) = addToEach(a, powerset(rest))@powerset(rest);
+
+
+
+
 (*2.B*)
 fun imperativeT(TV("chased")) = "chase"|
 imperativeT(TV("saw")) = "see"|
