@@ -30,12 +30,12 @@ fun makeImperative(Sentence(subj, Predicate(adv, TVP(v, dObj)), prPh)) =
   | makeImperative(Sentence(subj, Predicate(adv, IVP(v)), prPh)) =
     let val v1 = imperativeI(v)
     in
-        v1 ^ " " ^ printNounPhrase(dObj) ^ " " ^ printAdverb(adv) ^ " ," ^ 
+        v1 ^ " " ^ printAdverb(adv) ^ " ," ^ 
         printPrepPhrase(prPh) ^ " " ^ printVocative(subj) ^ "!"
     end
   | makeImperative(Sentence(subj, Predicate(adv, LVP(v, Adj(a))), prPh)) =
     let val v1 = imperativeL(v)
     in
-        v1 ^ " " ^ printNounPhrase(dObj) ^ " " ^ printAdverb(adv) ^ " ," ^ 
+        v1 ^ " " ^ a ^ printAdverb(adv) ^ " ," ^ 
         printPrepPhrase(prPh) ^ " " ^ printVocative(subj) ^ "!"
     end;
