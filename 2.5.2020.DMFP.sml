@@ -15,5 +15,6 @@ fun listMin([x]) = x |
 listMin(a::rest) = if a < listMin(rest) then a else listMin(rest);
 
 (*3.7.13)
-fun sort [x] = [x] |
-sort(xx) = listMin(xx)::sort(removeFirst(listMin(xx)));
+fun sort([]) = [] |
+sort(a::rest) = if listMin(a::rest) = a then a::sort(rest)
+else sort((listMin(rest))::removeFirst(listMin(rest), a::rest));
