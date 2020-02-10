@@ -1,13 +1,15 @@
 (*3.13.4*)
-fun findSmallest([]) = 0 |
-  findSmallest(a::rest) = if a < findSmallest(rest) then a else
-    findSmallest(rest);
-
-fun allDivide(x, []) = true |
-  allDivide(x, a::rest) = x mod a = 0 andalso allDivide(x,rest);
-
-fun hasDivisorOfAll([]) = true |
- hasDivisorOfAll(xx) = allDivide(findSmallest(xx), xx);
+fun hasDivisorOfAll(original) =
+    let
+        fun isDivisorOfAll(x, []) = true
+          | isDivisorOfAll(x, y::yRest) = x mod y = 0 andalso isDivisorOfAll(x,
+          yRest)
+        fun hasDivisorOfAllHelper([]) = false
+          | hasDivisorOfAllHelper(x::xRest) =
+            isDivisorOfAll(x,original) orelse hasDivisorOfAllHelper(xRest)
+    in
+        hasDivisorOfAllHelper(original)
+    end;
 
 
 (*3.13.5*)
