@@ -11,7 +11,6 @@ fun hasDivisorOfAll(original) =
         hasDivisorOfAllHelper(original)
     end;
 
-
 (*3.13.5*)
 fun contains(x, []) = false |
   contains(x, a::rest) = if (x = a) then true else contains(x, rest);
