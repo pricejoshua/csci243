@@ -2,7 +2,7 @@
 fun hasDivisorOfAll(original) =
     let
         fun isDivisorOfAll(x, []) = true
-          | isDivisorOfAll(x, y::yRest) = x mod y = 0 andalso isDivisorOfAll(x,
+          | isDivisorOfAll(x, y::yRest) = y mod x = 0 andalso isDivisorOfAll(x,
           yRest)
         fun hasDivisorOfAllHelper([]) = false
           | hasDivisorOfAllHelper(x::xRest) =
